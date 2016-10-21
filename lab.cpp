@@ -30,20 +30,16 @@ int main()
 			}//Fin del for
 			cout << endl;
 			int tam = cadena.size();
-			int temporal = 0;
+			int auxiliar = 0;
 			for (int i = 0; i < tam; ++i)
 			{
-				for (int j = i; j < tam - i; ++j)
-				{
-					if (arreglo[j] >= arreglo[j+1]) {
-						temporal = arreglo[j];
-						arreglo[j] = arreglo[j+1];
-						arreglo[j+1] = temporal;
-					}
-					cout << arreglo[j] << ";";
-				}//Fin del for
+				if (arreglo[i] > auxiliar) {
+					auxiliar = arreglo[i];
+				}//Fin del if
 			}//Fin del for
-			imprimirArreglo(arreglo, tam);
+			int basePan = auxiliar + 1;
+
+			cout << cadena << " esta en base " << basePan << endl;
 		}//Fin del if
 		if (opcion == 2) {
 
