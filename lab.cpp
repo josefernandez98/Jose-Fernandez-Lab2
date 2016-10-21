@@ -15,9 +15,15 @@ int main()
 		cout << "Ingrese su opcion:"
 		cin >> opcion;
 		if (opcion == 1) {
+			String cadena;
+			cout << "Ingrese un numero pandigital:";
+			cin >> cadena;
+			int arreglo[cadena.size];
+			for (int i = 0; i < cadena.size; ++i)
+			{
+				 arreglo[i] = cadena[i];
+			}//Fin del for
 			
-
-
 		}//Fin del if
 		if (opcion == 2) {
 
