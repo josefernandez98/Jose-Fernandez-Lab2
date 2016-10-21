@@ -63,11 +63,9 @@ int main(int argc, char const *argv[])
 					contador++;
 				}//Fin del if
 			}//Fin del for
-
 			int divisores[contador];
 			int resultadoDivisiones[contador];
 			int size = 0;
-			
 			//Determinar divisores
 			for (int i = 1; i <= numero; ++i)
 			{
@@ -76,7 +74,6 @@ int main(int argc, char const *argv[])
 					size++;
 				}//Fin del if	
 			}//Fin del for
-
 			int esPrimo = 0; 
 			int tamanno = 0;
 			for (int i = 0; i < contador; ++i)
@@ -84,21 +81,28 @@ int main(int argc, char const *argv[])
 				resultadoDivisiones[i] = (divisores[i] + numero)/divisores[i];
 				tamanno++;
 			}//Fin del for
-
 			for (int i = 0; i < tamanno ; ++i)
 			{
 				esPrimo = divisonMetodo(resultadoDivisiones[i]);
 				if (esPrimo == 1) {
 					resultadoFinal += resultadoDivisiones[i];
-				}
-			}
-
-
+				}//FIn del if
+			}//Fin del for
 			cout << resultadoFinal << endl ;
 		}//Fin del if opcion 2
 		if (opcion == 3) {
-
-
+			string cadenaNum;
+			cout << "Ingrese un numero:";
+			cin >> cadenaNum;
+			int tamm = cadenaNum.size();
+			int arregloNumeros[tamm];
+			int total = 0;
+			for (int i = 0; i < tamm; ++i)
+			{
+				arregloNumeros[i] = cadenaNum[i];
+				total += arregloNumeros[i];
+			}//Fin del for
+			imprimirArreglo(arregloNumeros, tamm);
 
 		}//Fin del if
 	} while (opcion != 4);
@@ -111,7 +115,7 @@ void imprimirArreglo (int arreglo[], int a) {
 		cout << arreglo[i] << ",";
 	}
 	cout << endl;
-} 
+} //Fin del metodo
 
 int divisonMetodo (int a) {
 	int cantidad = 0;
@@ -122,4 +126,4 @@ int divisonMetodo (int a) {
 		}
 	}
 	return cantidad;
-}
+} //Fin del metodo
