@@ -6,6 +6,7 @@ using namespace std;
 
 void imprimirArreglo (int[], int);
 int divisonMetodo (int);
+int recursivo (int);
 
 int main(int argc, char const *argv[])
 
@@ -92,17 +93,22 @@ int main(int argc, char const *argv[])
 		}//Fin del if opcion 2
 		if (opcion == 3) {
 			string cadenaNum;
+			int numero = 0;
 			cout << "Ingrese un numero:";
 			cin >> cadenaNum;
-			int tamm = cadenaNum.size();
-			int arregloNumeros[tamm];
+			cin >> numero;
+			int tam = cadenaNum.size();
+			int arregloNumeros[tam];
 			int total = 0;
-			for (int i = 0; i < tamm; ++i)
+			for (int i = 0; i < tam; ++i)
 			{
 				arregloNumeros[i] = cadenaNum[i];
+				arregloNumeros[i]-=48;
 				total += arregloNumeros[i];
 			}//Fin del for
-			imprimirArreglo(arregloNumeros, tamm);
+			string mensajeFuerte = "";
+			numero % total == 0 ? cout << "Es fuerte." << endl : cout << "No es fuerte." << endl;
+		
 
 		}//Fin del if
 	} while (opcion != 4);
