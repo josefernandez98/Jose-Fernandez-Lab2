@@ -2,6 +2,7 @@
 #include <cmath>
 #include <string>
 #include <math.h>
+#include <sstream>
 using namespace std;
 
 void imprimirArreglo (int[], int);
@@ -93,30 +94,64 @@ int main(int argc, char const *argv[])
 		}//Fin del if opcion 2
 		if (opcion == 3) {
 			string cadenaNum;
+			int numero = 0;
 			cout << "Ingrese un numero:";
-			cin >> cadenaNum;
+			cin >> numero;
+			stringstream ss;
+			ss << numero;
+			cadenaNum = ss.str();
 			int tam = cadenaNum.size();
 			int arregloNumeros[tam];
-			int total = 0;
+			int totalSuma = 0;
 			for (int i = 0; i < tam; ++i)
 			{
 				arregloNumeros[i] = cadenaNum[i];
 				arregloNumeros[i]-=48;
-				total += arregloNumeros[i];
+				totalSuma += arregloNumeros[i];
 			}//Fin del for
-			
+			int esPrimo = 0;
+			int cantidad = numero / totalSuma;
+			esPrimo = divisonMetodo(cantidad);
+			if (esPrimo == 1) {
+				cout << "Es fuerte." << endl;
+			} else {
+				cout << "No es fuerte." << endl;
+			}//Fin del if
+			//std::to_string(arr[i]); int a string
+			//aotoi(string.c_str()) string to int
+			int contador = 0;
+			do {
+				string nuevo = "";
+				if (cantidad % totalSuma == 0) {
+					for (int i = 0; i < tam - 1; ++i)
+					{
+						nuevo += arregloNumeros[i];
+					}//Fin del for
+					tam--;
+					for (int i = 0; i < tam; ++i)
+					{
+						arregloNumeros[i] = nuevo[i];
+						arregloNumeros[i]-=48;
+						totalSuma += arregloNumeros[i];
+					}//Fin del for
+				} else {
+					contador = -1;
+				}//Fin del 
+			} while (contador != -1);
+			if (contador == -1) {
+				cout << "No es Harshad." << endl;
+			} else {
+				cout << "Si es Harshad." << endl;
+			}
+
+
+
+
 		}//Fin del if
 	} while (opcion != 4);
 	return 0;
 }//Fin del main
 
-void imprimirArreglo (int arreglo[], int a) {
-	for (int i = 0; i < a; ++i)
-	{
-		cout << arreglo[i] << ",";
-	}
-	cout << endl;
-} //Fin del metodo
 
 int divisonMetodo (int a) {
 	int cantidad = 0;
