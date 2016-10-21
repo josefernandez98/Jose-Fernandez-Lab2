@@ -3,6 +3,7 @@
 #include <string>
 #include <math.h>
 #include <sstream>
+#include <stdlib.h>
 using namespace std;
 
 void imprimirArreglo (int[], int);
@@ -122,11 +123,12 @@ int main(int argc, char const *argv[])
 			int contador = 0;
 			do {
 				string nuevo = "";
-				if (cantidad % totalSuma == 0) {
+				if (numero % totalSuma == 0) {
 					for (int i = 0; i < tam - 1; ++i)
 					{
 						nuevo += arregloNumeros[i];
 					}//Fin del for
+					numero = atoi(nuevo.c_str());
 					tam--;
 					for (int i = 0; i < tam; ++i)
 					{
@@ -134,6 +136,8 @@ int main(int argc, char const *argv[])
 						arregloNumeros[i]-=48;
 						totalSuma += arregloNumeros[i];
 					}//Fin del for
+					contador = 1;
+					break;
 				} else {
 					contador = -1;
 				}//Fin del 
