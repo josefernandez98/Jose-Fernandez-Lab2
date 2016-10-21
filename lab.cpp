@@ -93,10 +93,8 @@ int main(int argc, char const *argv[])
 		}//Fin del if opcion 2
 		if (opcion == 3) {
 			string cadenaNum;
-			int numero = 0;
 			cout << "Ingrese un numero:";
 			cin >> cadenaNum;
-			cin >> numero;
 			int tam = cadenaNum.size();
 			int arregloNumeros[tam];
 			int total = 0;
@@ -106,10 +104,7 @@ int main(int argc, char const *argv[])
 				arregloNumeros[i]-=48;
 				total += arregloNumeros[i];
 			}//Fin del for
-			string mensajeFuerte = "";
-			numero % total == 0 ? cout << "Es fuerte." << endl : cout << "No es fuerte." << endl;
-		
-
+			
 		}//Fin del if
 	} while (opcion != 4);
 	return 0;
