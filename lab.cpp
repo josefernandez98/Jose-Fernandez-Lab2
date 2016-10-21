@@ -1,11 +1,13 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <math.h>
 using namespace std;
 
 void imprimirArreglo (int[], int);
 
-int main() 
+int main(int argc, char const *argv[])
+
 {
 	int opcion;
 	do 
@@ -25,8 +27,8 @@ int main()
 			int temp = 0;
 			for (int i = 0; i < cadena.size(); ++i)
 			{
-				 arreglo[i] = cadena[i];
-				 arreglo[i] -= 48; 
+				arreglo[i] = cadena[i];
+				arreglo[i] -= 48; 
 			}//Fin del for
 			cout << endl;
 			int tam = cadena.size();
@@ -38,9 +40,15 @@ int main()
 				}//Fin del if
 			}//Fin del for
 			int basePan = auxiliar + 1;
-
-			cout << cadena << " esta en base " << basePan << endl;
-		}//Fin del if
+			int baseDec = 0;
+			int contador = 0;
+			for (int i = tam - 1; i >= 0; --i)
+			{
+				baseDec += arreglo[contador] * pow(basePan, i);
+				contador++;
+			}//Fin del for
+			cout << cadena << " esta en base " << basePan << " y equivale a " << baseDec << " en decimal" << endl;
+		}//Fin del i
 		if (opcion == 2) {
 
 
@@ -53,13 +61,3 @@ int main()
 	} while (opcion != 4);
 	return 0;
 }//Fin del main
-
-
-void imprimirArreglo (int arreglo[], int tam) {
-	for (int i = 0; i < tam; ++i)
-	{
-		cout << "[" << arreglo[i] << "]";
-	}
-}//Fin del metodo
-
-
