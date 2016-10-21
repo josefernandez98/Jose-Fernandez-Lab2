@@ -5,6 +5,7 @@
 using namespace std;
 
 void imprimirArreglo (int[], int);
+int divisonMetodo (int);
 
 int main(int argc, char const *argv[])
 
@@ -50,20 +51,24 @@ int main(int argc, char const *argv[])
 			cout << cadena << " esta en base " << basePan << " y equivale a " << baseDec << " en decimal" << endl;
 		}//Fin del i
 		if (opcion == 2) {
-			int numero;
-			int resultadoFinal;
+			int numero = 0;
+			int resultadoFinal = 0;
 			cout << "Ingrese un numero:";
 			cin >> numero;
 			int contador = 0;
+			//Determinar tamaño
 			for (int i = 1; i <= numero; ++i)
 			{
 				if (numero % i == 0) {
 					contador++;
 				}//Fin del if
 			}//Fin del for
+
 			int divisores[contador];
 			int resultadoDivisiones[contador];
 			int size = 0;
+			
+			//Determinar divisores
 			for (int i = 1; i <= numero; ++i)
 			{
 				if (numero % i == 0) {
@@ -72,15 +77,27 @@ int main(int argc, char const *argv[])
 				}//Fin del if	
 			}//Fin del for
 
-			for (int i = 0; i < size; ++i)
+			int esPrimo = 0; 
+			int tamanno = 0;
+			for (int i = 0; i < contador; ++i)
 			{
 				resultadoDivisiones[i] = (divisores[i] + numero)/divisores[i];
+				tamanno++;
 			}//Fin del for
-			imprimirArreglo(resultadoDivisiones, size);
+
+			for (int i = 0; i < tamanno ; ++i)
+			{
+				esPrimo = divisonMetodo(resultadoDivisiones[i]);
+				if (esPrimo == 1) {
+					resultadoFinal += resultadoDivisiones[i];
+				}
+			}
 
 
-		}//Fin del if
+			cout << resultadoFinal << endl ;
+		}//Fin del if opcion 2
 		if (opcion == 3) {
+
 
 
 		}//Fin del if
@@ -95,3 +112,14 @@ void imprimirArreglo (int arreglo[], int a) {
 	}
 	cout << endl;
 } 
+
+int divisonMetodo (int a) {
+	int cantidad = 0;
+	for (int i = 1; i < a; ++i)
+	{
+		if (a % i == 0) {
+			cantidad++;
+		}
+	}
+	return cantidad;
+}
